@@ -1,22 +1,25 @@
 /* container */
 .container {
-    width: 1000px;
+    width: 414px;
     margin: 0 auto;
-    background: #999;
 }
-
+/* mediaquery */
+@media (min-width: 250px) and (max-width: 420px){
+    .container {width: 100%;}
+}
 /*row*/
 .row{
     position: relative;
-    margin: 15px 20px;
-    background: #888;
-    display: inline-block;
+    width: calc(100% -40px);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #EBEBEB;
+    margin: 0px 20px;
+
 }
 
 /* header */
 #header {
-    height: 62px;
-    background-color: #777;
 }
 #header .header-time {
     color: #A8A8A8;
@@ -26,6 +29,7 @@
 }
 
 #header .header-title {
+    position: relative;
     color: #000;
     font-size: 32px;
     font-weight: 600;
@@ -33,9 +37,51 @@
 }
 
 #header .header-id {
+    position: absolute; right: 0px; top: 50%; transform: translateY(-50%);
+    color: #FFF;
+    font-size: 24px;
+    font-weight: 500;
     width: 35px;
     height: 35px;
-    background: linear-gradient(334deg, rgba(164, 169, 181, 0.00) 8.36%, #A4A9B5 91.64%), rgba(196, 196, 196, 0.70);;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: linear-gradient(334deg, rgba(164, 169, 181, 0.00) 8.36%, rgba(164, 169, 181, 0.70) 91.64%);
 }
+
+/* main */
+/* bestM */
+.bestM {}
+.bestM .container {}
+.bestM .container .row {}
+.bestM .container .row .best{}
+.bestM .container .row .best .best-title .best-title-title{
+    color: #DA5E7C;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 20px; 
+    letter-spacing: -0.24px;
+    padding-bottom: 5px;
+}
+.bestM .container .row .best .best-title .best-title-name{
+    color: #000;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 600;
+    letter-spacing: -1.6px;
+    line-height: 20px; /* 90.909% */
+    padding-bottom: 5px;
+}
+.bestM .container .row .best .best-title .best-title-decrip{
+    color: #818181;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: -0.7px;
+    padding-bottom: 10px;
+}
+
 
 
