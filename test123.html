@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draggable Scroll without Scrollbar</title>
+    <style>
+        .bigBox {
+            width: 100px;
+            height: 300px;
+            margin: 0px auto;
+        }
+        .content1 {
+            width: 100px;
+            height: 100px;
+            background-color: #999;
+        }
+        .wrap {
+            width: 100px;
+            display: flex;
+            overflow-x: scroll;
+            cursor: grab;
+            scrollbar-width: none; /* Firefox */
+            -ms-overflow-style: none;  /* IE 10+ */
+        }
+        .wrap::-webkit-scrollbar { /* WebKit */
+            width: 0;
+            height: 0;
+        }
+        .box1 {
+            width: 30px;
+            height: 30px;
+            background: #444;
+            flex-shrink: 0;
+        }
+        .content2 {
+            width: 100px;
+            height: 100px;
+            background-color: #777;
+            overflow: hidden;
+        }
+        .content3 {
+            width: 100px;
+            height: 100px;
+            background-color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="bigBox">
+        <div class="content1"></div>
+        <div class="content2">
+            <div class="wrap">
+                <div class="box1">1</div>
+                <div class="box1">2</div>
+                <div class="box1">3</div>
+                <div class="box1">4</div>
+                <div class="box1">5</div>
+            </div>
+        </div>
+        <div class="content3"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function() { // 문서가 준비되면 실행
+            var isDragging = false; // 드래그 상태를 추적하는 변수
+            var startX, scrollLeft; // 초기 마우스 위치와 초기 스크롤 위치를 저장하는 변수
+
+            $('.recentM-contents-wrap').on('mousedown', function(e) { // wrap 요소에서 마우스 버튼이 눌릴 때 실행
+                isDragging = true; // 드래그 상태를 활성화
+                startX = e.pageX - $(this).offset().left; // 클릭한 지점의 X 좌표를 계산
+                scrollLeft = $(this).scrollLeft(); // 현재 스크롤 위치를 저장
+                $(this).css('cursor', 'grabbing'); // 커서를 드래그 중인 모양으로 변경
+            });
+
+            $(document).on('mouseup', function() { // 문서에서 마우스 버튼이 놓일 때 실행
+                isDragging = false; // 드래그 상태를 비활성화
+                $('.wrap').css('cursor', 'grab'); // 커서를 기본 모양으로 변경
+            });
+
+            $(document).on('mousemove', function(e) { // 문서에서 마우스를 이동할 때 실행
+                if (!isDragging) return; // 드래그 상태가 아니면 실행하지 않음
+                e.preventDefault(); // 기본 동작을 막음
+                var x = e.pageX - $('.wrap').offset().left; // 현재 마우스 위치를 계산
+                var walk = (x - startX); // 이동한 거리를 계산
+                $('.wrap').scrollLeft(scrollLeft - walk); // 스크롤 위치를 이동한 거리만큼 변경
+            });
+        });
+    </script>
+</body>
+</html>

@@ -16,7 +16,6 @@
     padding-bottom: 10px;
     border-bottom: 1px solid #EBEBEB;
     margin: 0px 20px;
-
 }
 
 .title-name{
@@ -28,82 +27,18 @@
     line-height: 20px; /* 90.909% */
 }
 
-
-/* header */
-#header {
-}
-#header .header-time {
-    color: #A8A8A8;
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: -0.24px;
-}
-
-#header .header-title {
-    position: relative;
-    color: #000;
-    font-size: 32px;
-    font-weight: 600;
-    letter-spacing: -0.24px;
-}
-
-#header .header-id {
-    position: absolute; right: 0px; top: 50%; transform: translateY(-50%);
-    color: #FFF;
-    font-size: 24px;
-    font-weight: 500;
-    width: 35px;
-    height: 35px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 50%;
-    background: linear-gradient(334deg, rgba(164, 169, 181, 0.00) 8.36%, rgba(164, 169, 181, 0.70) 91.64%);
-}
-
-/* main */
-/* bestM */
-.bestM {}
-.bestM .container {}
-.bestM .container .row {}
-.bestM .container .row .best{}
-.bestM .container .row .best .best-title .best-title-title{
-    color: #DA5E7C;
-    font-size: 12px;
-    font-style: normal;
-    font-weight: 600;
-    line-height: 20px; 
-    letter-spacing: -0.24px;
-    padding-bottom: 5px;
-}
-.bestM .container .row .best .best-title .best-title-name{
-    color: #000;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 600;
-    letter-spacing: -1.6px;
-    line-height: 20px; /* 90.909% */
-    padding-bottom: 5px;
-}
-.bestM .container .row .best .best-title .best-title-decrip{
-    color: #818181;
-    font-size: 22px;
-    font-style: normal;
-    font-weight: 300;
-    letter-spacing: -0.7px;
-    padding-bottom: 10px;
-}
-
 /* recentM */
 .recentM-title {
     padding-bottom: 10px;
 }
 .recentM-contents-wrap {
-    width: 570px;
+    width: 100vw;
     display: flex;
     overflow-x: scroll;
     cursor: grab;
-    user-select: none; /* 드래그할 때 요소가 선택되지 않도록 설정 */
+}
+.recentM-contents-wrap.active {
+    cursor: grabbing;
 }
 .recentM-contents-wrap .recentM-content {
     width: 182px;
@@ -126,11 +61,6 @@
     font-weight: 500;
     line-height: 20px; /* 133.333% */
     letter-spacing: -1px;
-}
-
-
-
-.title-name {
 }
 
 .nextM-wrap {
@@ -159,7 +89,6 @@
 .nextM-contents-wrap .nextM-content-wrap-R {
     padding: 10px 10px 15px 5px;
     border-bottom: #EBEBEB solid 1px;
-
 }
 .nextM-contents-wrap .nextM-content-wrap-R > span {
     color: #DA5E7C;
